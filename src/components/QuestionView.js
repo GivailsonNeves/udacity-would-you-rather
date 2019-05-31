@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Card } from "@material-ui/core";
 
 class QuestionView extends Component {
     
@@ -13,14 +12,12 @@ class QuestionView extends Component {
         const question = this.props.questions[this.props.id];
         const author = this.props.users[question.author];
 
-        console.log(question)
-
         return (
-            <Card>
+            <div>
                 {author && author.name}
                 <h3>Would you rather</h3>
                 <p>...{question.optionOne.text}...</p>
-            </Card>
+            </div>
         );
     }
 }

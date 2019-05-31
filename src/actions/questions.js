@@ -40,7 +40,7 @@ export const handleCreateQuestion = ({ optionOneText, optionTwoText}) =>
     return (dispatch, getState) => {
         const {authedUser} = getState();
 
-        return _saveQuestion({ optionOneText, optionTwoText, authedUser })
+        return _saveQuestion({ optionOneText, optionTwoText, author: authedUser })
             .then(question => dispatch(createQuestion(question)));
     }
 }

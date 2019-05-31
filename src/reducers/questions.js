@@ -8,6 +8,11 @@ const questions = (state = {}, action) => {
                 ...state,
                 ...action.questions
             }
+        case CREATE_QUESTION:
+            return {
+                ...state,
+                [action.question.id]: action.question
+            }
         default:
             return state;
     }

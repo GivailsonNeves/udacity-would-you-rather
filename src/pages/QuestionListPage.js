@@ -26,8 +26,7 @@ class QuestionListPage extends Component {
     }
 }
 
-const mapStateToProps = ({ questions }) => {
-    console.log(questions);
+const mapStateToProps = ({ questions }) => {    
     return {
         questionsIds: Object.keys(questions)
     }
