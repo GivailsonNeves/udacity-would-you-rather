@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 class QuestionView extends Component {
     
-    constructor(props) {
-        super(props);
-    }
-
     render() {
 
-        const question = this.props.questions[this.props.id];
+        const { question } = this.props;
         const author = this.props.users[question.author];
 
         return (
@@ -17,6 +14,7 @@ class QuestionView extends Component {
                 {author && author.name}
                 <h3>Would you rather</h3>
                 <p>...{question.optionOne.text}...</p>
+                <NavLink to={`/question/${question.id}`}>See</NavLink>
             </div>
         );
     }

@@ -1,2 +1,30 @@
 @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+* {
+    font-family: 'Roboto';
+}
+.card-list {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto; 
+}
+.card {
+    box-shadow: 2px 2px 5px #cccccc;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.card-body {
+    padding: 5px;
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+}
+.card-body div{
+    flex: 1;
+    padding: 15px;
+}
+
+.card-body div.card-inner-score {
+    flex: 2;
+}

@@ -13,6 +13,10 @@ const questions = (state = {}, action) => {
                 ...state,
                 [action.question.id]: action.question
             }
+        case ANSWER_QUESTION:
+            return {
+                ...state
+            }
         default:
             return state;
     }

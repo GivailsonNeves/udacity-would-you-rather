@@ -8,9 +8,9 @@ const users = (state = {}, action) => {
                 ...state,
                 ...action.users
             }
+        default:
+            return state;
     }
-
-    return state;
 }
 
 export default users;

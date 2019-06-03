@@ -11,20 +11,21 @@ export const receiveQuestions = (questions) => {
     }
 }
 
-const answerQuestion = ({ users, questions }) => {
+const answerQuestion = ({ qid, answer }) => {
     return {
         type: ANSWER_QUESTION,
-        users,
-        questions,
+        qid,
+        answer,
     }
 }
 
-export const handleAnswerQuestion = ({id, answer}) => {
+export const handleAnswerQuestion = ({qid, answer}) => {
     return (dispatch, getState) => {
         const {authedUser} = getState();
+        console.log(authedUser)
 
-        return _saveQuestionAnswer({authedUser, id, answer})
-            .then(result => dispatch(answerQuestion(result)))
+        return _saveQuestionAnswer({authedUser, qid, answer})
+            .then(() => dispatch(answerQuestion({qid, answer})))
     }
 }
 

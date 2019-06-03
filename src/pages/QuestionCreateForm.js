@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { handleCreateQuestion } from '../actions/questions';
 
-class QuestionCreateFormPage extends Component {
+class QuestionCreateForm extends Component {
 
     state = {
         optionOneText: '',
@@ -53,4 +53,4 @@ class QuestionCreateFormPage extends Component {
     }
 }
 
-export default connect()(QuestionCreateFormPage);
+export default connect()(QuestionCreateForm);

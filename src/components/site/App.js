@@ -4,9 +4,11 @@ import './App.css';
 import { connect } from 'react-redux'
 import Header from './header';
 import { handleInitialData } from '../../actions/shared';
-import QuestionListPage from '../../pages/QuestionListPage';
-import QuestionCreateFormPage from '../../pages/QuestionCreateFormPage';
+import QuestionList from '../../pages/QuestionList';
+import QuestionCreateForm from '../../pages/QuestionCreateForm';
 import LoginForm from '../../pages/LoginForm';
+import QuestionAnswer from '../../pages/QuestionAnswer';
+import LeaderBoard from '../../pages/LeaderBoard';
 
 class App extends Component {
 
@@ -16,34 +18,35 @@ class App extends Component {
 
   render() {
 
-    const {authedUser} = this.props;
+    const {loading, users, authedUser} = this.props;
 
     return (
+      !loading ?
       <Router>
         <Fragment>
-          <Header />
-          <h2>--{authedUser}--</h2>
-          <br />
-          <br />
-          <br />
-          <br />
+          <Header user={users[authedUser]} />
           <div className="container">
-            <Route path='/' exact component={QuestionListPage} />
-            <Route path='/new-question' exact component={QuestionCreateFormPage} />
+            <Route path='/' exact component={QuestionList} />
+            <Route path='/new-question' exact component={QuestionCreateForm} />
             <Route path='/login' exact component={LoginForm} />
+            <Route path='/leaderboard' exact component={LeaderBoard} />
+            <Route path='/question/:id' exact component={QuestionAnswer} />
           </div>
         </Fragment>
       </Router>
+      :
+      <p>carregando...</p>
     );
   }
 
 }
 
-function mapStateToProps({ authedUser }) {
-  return {
+const mapStateToProps = ({ authedUser, users }) => (
+  {
+    users,
     authedUser,
     loading: authedUser === null
   }
-}
+);
 
 export default connect(mapStateToProps)(App)
