@@ -5,7 +5,7 @@ const Header = props => (
     <header>
         <nav>
             <ul className="header-links">
-                <NavLink to="/" activeClassName='active'>
+                <NavLink to="/" exact activeClassName='active'>
                     Home
                 </NavLink>
                 <NavLink to="/new-question" activeClassName='active'>
@@ -14,20 +14,22 @@ const Header = props => (
                 <NavLink to="/leaderboard">
                     Leader Board
                 </NavLink>
-                {
-                    props.user ?
-                        <div>
-                            <img width="30px" alt="Remy Sharp" src={props.user.avatarURL} />
-                            <span>
-                                {props.user.name} |
-                            </span>
-                        </div>
-                        : ''
+                <div className="user-place">
+                    {
+                        props.user ?
+                            <div>
+                                <img width="30px" alt="Remy Sharp" src={props.user.avatarURL} />
+                                <span>
+                                    {props.user.name}
+                                </span>
+                            </div>
+                            : ''
 
-                }
-                <a href="/">
-                    Sair
-                </a>
+                    }
+                    <button onClick={props.logOut}>
+                        Sair
+                    </button>
+                </div>
             </ul>
         </nav>
     </header>

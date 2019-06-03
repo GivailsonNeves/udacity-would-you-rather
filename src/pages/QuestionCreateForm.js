@@ -15,7 +15,7 @@ class QuestionCreateForm extends Component {
         const { dispatch, history } = this.props
 
         dispatch(handleCreateQuestion(this.state));
-            
+
         this.setState({
             optionOneText: '',
             optionTwoText: ''
@@ -25,30 +25,40 @@ class QuestionCreateForm extends Component {
     }
 
     handleInput = (e) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
 
         this.setState({
             [name]: value
-        });        
+        });
     }
 
     render() {
-        const {optionOneText, optionTwoText} = this.state;
+        const { optionOneText, optionTwoText } = this.state;
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    First option
-                    <input value={optionOneText} name="optionOneText" onChange={this.handleInput} />
-                </label>
-                <label>
-                    Second option
-                    <input value={optionTwoText} name="optionTwoText" onChange={this.handleInput} />
-                </label>
-                <button type="submit">
-                    Submit
-                </button>
-            </form>
+            <div className="form form-question">
+                <div className="text-center">
+                    <h2>Would You Rather?</h2>
+                </div>
+                <fieldset>
+                    <legend>New question</legend>
+                        <form onSubmit={this.handleSubmit}>
+                            <label>
+                                First option:
+                        <input value={optionOneText} name="optionOneText" onChange={this.handleInput} />
+                            </label>
+                            <label>
+                                Second option:
+                        <input value={optionTwoText} name="optionTwoText" onChange={this.handleInput} />
+                            </label>
+                            <div className="text-center">
+                                <button type="submit">
+                                    Submit
+                        </button>
+                            </div>
+                        </form>
+                </fieldset>
+            </div>
         )
     }
 }
