@@ -8,7 +8,7 @@ There's a LeaderBoard where users can find the ranking of players. The order con
 
 ## Tecnologies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). and also uses [Redux](https://redux.js.org/) to organize and manage the data flow.
 
 ## Available Scripts
 
