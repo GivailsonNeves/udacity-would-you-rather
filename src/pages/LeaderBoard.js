@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 class LeaderBoard extends Component {
     render() {
         const { users } = this.props;
-        console.log(users)
         return (
             <div className="card-list">
                 {
                     users.map(u => (
                         <div key={u.id} className="card">
                             <div className="card-body">
-                                <div>
+                                <div className="image-area">
                                     <img src={u.avatarURL} />
                                 </div>
                                 <div className="card-inner-score">
@@ -29,14 +28,12 @@ class LeaderBoard extends Component {
                                         </tbody>
                                     </table>
                                 </div>
-                                <div>
-                                    <div className="card-score">
-                                        <div className="card-header">
-                                            <p>Score</p>
-                                        </div>
-                                        <div className="score-point">
-                                            {u.score}
-                                        </div>
+                                <div className="card-score">
+                                    <div className="card-header">
+                                        <p>Score</p>
+                                    </div>
+                                    <div className="score-point">
+                                        {u.score}
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +51,6 @@ const mapStateToProps = ({ users }) => {
         users[i].score = users[i].questions.length + Object.keys(users[i].answers).length;
         _users.push(users[i]);
     }
-    console.log(_users)
     return (
         {
             users: _users.sort((a, b) => b.score - a.score)

@@ -28,26 +28,28 @@ class App extends Component {
 
   render() {
 
-    const { logged, users, authedUser } = this.props;
+    const { logged, loaded, users, authedUser } = this.props;
 
     return (
       <div className="container">
         {
-          logged ?
-            <Router>
-              <Fragment>
-                <Header user={users[authedUser]} logOut={this.logOut} />
-                <div className="container">
-                  <Route path='/' exact component={QuestionList} />
-                  <Route path='/new-question' exact component={QuestionCreateForm} />
-                  {/* <Route path='/login' exact component={LoginForm} /> */}
-                  <Route path='/leaderboard' exact component={LeaderBoard} />
-                  <Route path='/question/:id' exact component={QuestionAnswer} />
-                </div>
-              </Fragment>
-            </Router>
-            :
-            <LoginForm />
+          loaded ?
+            (logged ?
+              <Router>
+                <Fragment>
+                  <Header user={users[authedUser]} logOut={this.logOut} />
+                  <div className="container">
+                    <Route path='/' exact component={QuestionList} />
+                    <Route path='/new-question' exact component={QuestionCreateForm} />
+                    {/* <Route path='/login' exact component={LoginForm} /> */}
+                    <Route path='/leaderboard' exact component={LeaderBoard} />
+                    <Route path='/question/:id' exact component={QuestionAnswer} />
+                  </div>
+                </Fragment>
+              </Router>
+              :
+              <LoginForm />)
+          : <div className="text-center"><p>Loading...</p></div>
         }
       </div>
     );
@@ -55,10 +57,11 @@ class App extends Component {
 
 }
 
-const mapStateToProps = ({ authedUser, users }) => (
+const mapStateToProps = ({ authedUser, users, loaded }) => (
   {
     users,
     authedUser,
+    loaded,
     logged: authedUser !== null
   }
 );

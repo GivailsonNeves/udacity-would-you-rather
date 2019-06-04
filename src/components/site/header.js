@@ -27,7 +27,7 @@ const Header = props => (
 
                     }
                     <button onClick={props.logOut}>
-                        Sair
+                        logout
                     </button>
                 </div>
             </ul>

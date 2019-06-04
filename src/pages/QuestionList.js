@@ -18,30 +18,47 @@ class QuestionList extends Component {
         this.setState({ currentTab: tab })
     }
 
-    render() {
+    filterQuestions(currentTab) {
+        let listQuestions = [];
+
         const { questions, authedUser, users } = this.props;
         const questionsIds = Object.keys(questions);
-        const { currentTab } = this.state;
         const currentUser = users[authedUser];
 
+        if (currentUser) {
+            questionsIds.forEach(
+                id => {
+                    if (
+                        !!currentUser.answers[id] && currentTab === 2
+                        || !currentUser.answers[id] && currentTab === 1
+                    ) listQuestions.push(questions[id]);
+                }
+            )
+            
+        }
+
+        return listQuestions;
+    }
+
+    render() {
+        const { currentTab } = this.state;
+        const questionList = this.filterQuestions(currentTab);
+
         return (
-            <div>
+            <div className="card-list">
+                <h3>Questions</h3>
                 <ul className="tab-questions">
                     <li><button onClick={e => this.changeTab(e, 1)} className={currentTab === 1 ? "active" : ""}>Not Answared</button></li>
                     <li><button onClick={e => this.changeTab(e, 2)} className={currentTab === 2 ? "active" : ""}>Answared</button></li>
                 </ul>
-                <h3>questoes</h3>
-                <ul>
+                <div>
                     {
-                        currentUser && questionsIds.map(id => {
-                            if (!!currentUser.answers[id] && currentTab === 2)
-                                return <li key={id}><QuestionView question={questions[id]} /></li>
-                            else if (!currentUser.answers[id] && currentTab === 1)
-                                return <li key={id}><QuestionView question={questions[id]} /></li>
-                            return null;
-                        })
+                        questionList.length ? questionList.map(question => {
+                            return <QuestionView key={question.id} question={question} />
+                        }) : 
+                        <div><p className="text-center">No data for this tab!</p></div>
                     }
-                </ul>
+                </div>
             </div>
         )
     }

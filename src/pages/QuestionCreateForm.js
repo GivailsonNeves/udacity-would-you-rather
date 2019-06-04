@@ -52,7 +52,7 @@ class QuestionCreateForm extends Component {
                         <input value={optionTwoText} name="optionTwoText" onChange={this.handleInput} />
                             </label>
                             <div className="text-center">
-                                <button type="submit">
+                                <button type="submit" disabled={this.state.optionOneText == '' || this.state.optionTwoText == ''}>
                                     Submit
                         </button>
                             </div>

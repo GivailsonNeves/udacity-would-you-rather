@@ -44,7 +44,7 @@ class LoginForm extends Component {
                     <legend>Login</legend>
                     <form onSubmit={this.logar}>
                         <label>
-                            Selecione o usuário:
+                            Select a user:
                             <select onChange={this.changeUser}>
                                 <option value="">--select--</option>
                                 {
@@ -55,7 +55,7 @@ class LoginForm extends Component {
                             </select>
                         </label>
                         <div className="text-center">
-                            <button disabled={!this.state.user} type="submit">Logar</button>
+                            <button disabled={!this.state.user} type="submit">Submit</button>
                         </div>
                     </form>
                 </fieldset>

@@ -107,8 +107,15 @@ button:hover {
   padding: 15px;
 }
 
-.card-body div.card-inner-score {
-  flex: 2;
+.card-body .image-area,
+.card-body .card-score{
+  width: 150px;
+  text-align: center;
+  flex: 0;
+}
+
+.card-footer {
+  padding-bottom: 20px;
 }
 
 .form {
@@ -123,6 +130,28 @@ button:hover {
 .form fieldset {
   padding: 20px;
 }
+
+.tab-questions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+  .tab-questions li {
+    display: inline-block;
+    width: 150px;
+  }
+    .tab-questions li button {
+      width: 100%;
+      box-shadow: 0 0 0;
+      border-radius: 0;
+      background: #ccc;
+      color: white;
+    }
+      .tab-questions li button.active {
+        background: white;
+        color: black;
+      }
 
 /* ============================== login form ============================== */
 .login-form {
@@ -142,7 +171,15 @@ button:hover {
 }
 
 /* ============================== form question ============================== */
+.form-answer {
+  width: 500px;
+  margin: 0 auto;
+}
 .form-answer label{
     display: block;
     margin-bottom: 20px;
+}
+.form-answer label input {
+  display: inline-block;
+  margin-right: 10px;
 }
