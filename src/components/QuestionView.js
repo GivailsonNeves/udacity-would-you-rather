@@ -13,7 +13,7 @@ class QuestionView extends Component {
             <div className="card">
                 <div className="card-body">
                     <div className="image-area">
-                        <img src={author.avatarURL} />
+                        <img alt={author.name} src={author.avatarURL} />
                     </div>
                     <div className="question-info">
                         {author && author.name}

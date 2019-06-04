@@ -17,7 +17,7 @@ class QuestionAnswer extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const { dispatch, history } = this.props
+        const { dispatch } = this.props
         dispatch(handleAnswerQuestion(this.state));
     }
 
@@ -51,7 +51,7 @@ class QuestionAnswer extends Component {
                                     <div className="card">
                                         <div className="card-body">
                                             <div className="image-area">
-                                                <img src={author.avatarURL} />
+                                                <img alt={author.name} src={author.avatarURL} />
                                             </div>
                                             <div>
                                                 <h3>Would you rather?</h3>

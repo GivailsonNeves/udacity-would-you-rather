@@ -12,7 +12,7 @@ class LeaderBoard extends Component {
                         <div key={u.id} className="card">
                             <div className="card-body">
                                 <div className="image-area">
-                                    <img src={u.avatarURL} />
+                                    <img alt={u.name} src={u.avatarURL} />
                                 </div>
                                 <div className="card-inner-score">
                                     <h4>{position++}º - {u.name}</h4>

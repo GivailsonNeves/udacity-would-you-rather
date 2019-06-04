@@ -192,10 +192,14 @@ button:hover {
   display: block;
   width: 100%;
   padding: 5px;
-  border: 1px #ccc solid;
-  margin-bottom: 10px;
+  border: 1px #ccc solid;  
   position: relative;
   overflow: hidden;
+}
+
+.question-result-detail > div > small {
+  margin-bottom: 10px;
+  display: block;
 }
 
 .question-result-detail .progress small {

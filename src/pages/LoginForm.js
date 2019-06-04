@@ -37,7 +37,7 @@ class LoginForm extends Component {
         return (
             <div className="form login-form">
                 <div className="text-center">
-                    <img src="/logo.png" />
+                    <img alt="Would You Rather" src="/logo.png" />
                     <h2>Would You Rather?</h2>
                 </div>
                 <fieldset>

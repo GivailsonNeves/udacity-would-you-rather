@@ -5,13 +5,15 @@ const QuestionResult = props => {
     const totalOne = question.optionOne.votes.length;
     const totalTwo = question.optionTwo.votes.length;
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length;
+    const percentVotesOne = (totalOne / totalVotes * 100) + '%';
+    const percentVotesTwo = (totalTwo / totalVotes * 100) + '%';
     return (
         <div className="question-result">
             <h3>Added by {props.author.name}</h3>
             <div className="card">
                 <div className="card-body">
                     <div className="image-area">
-                        <img src={props.author.avatarURL} />
+                        <img alt={props.author.name} src={props.author.avatarURL} />
                     </div>
                     <div className="question-result-detail">
                         <h4>Results:</h4>
@@ -23,9 +25,10 @@ const QuestionResult = props => {
                                 }
                             </p>
                             <div className="progress">
-                                <small>{totalOne} of {totalVotes}</small>
-                                <span style={ {width : `${totalOne / totalVotes * 100}%`} } className="progress-bar"></span>
+                                <small>{percentVotesOne}</small>
+                                <span style={ { width: percentVotesOne } } className="progress-bar"></span>
                             </div>
+                            <small>{totalOne} of {totalVotes}</small>
                         </div>
                         <div>
                             <p>
@@ -35,9 +38,10 @@ const QuestionResult = props => {
                                 }
                             </p>
                             <div className="progress">
-                                <small>{totalTwo} of {totalVotes}</small>
-                                <span style={ {width : `${totalTwo / totalVotes * 100}%`} } className="progress-bar"></span>
+                                <small>{percentVotesTwo}</small>
+                                <span style={ { width: percentVotesTwo} } className="progress-bar"></span>
                             </div>
+                            <small>{totalTwo} of {totalVotes}</small>
                         </div>
                     </div>
                 </div>

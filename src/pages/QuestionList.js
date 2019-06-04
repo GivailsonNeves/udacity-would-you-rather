@@ -29,8 +29,8 @@ class QuestionList extends Component {
             questionsIds.forEach(
                 id => {
                     if (
-                        !!currentUser.answers[id] && currentTab === 2
-                        || !currentUser.answers[id] && currentTab === 1
+                        (!!currentUser.answers[id] && currentTab === 2) || 
+                        (!currentUser.answers[id] && currentTab === 1)
                     ) listQuestions.push(questions[id]);
                 }
             )

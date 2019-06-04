@@ -1,7 +1,6 @@
 import { _getUsers, _getQuestions } from '../_DATA';
 import { receiveQuestions } from './questions';
 import { receiveUsers } from './users';
-import { setAuthedUser } from './auth';
 import { LOADING_COMPLETE } from '../reducers/shared';
 
 export function handleInitialData() {
