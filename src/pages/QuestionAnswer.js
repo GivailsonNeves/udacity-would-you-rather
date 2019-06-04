@@ -73,7 +73,7 @@ class QuestionAnswer extends Component {
                                         </div>
                                     </div>
                                 ) : (
-                                    <QuestionResult question={question} answer={user.answers[id]} />
+                                    <QuestionResult question={question} author={author} answer={user.answers[id]} />
                                 )
                             
                         : <p>Question not founded!</p>

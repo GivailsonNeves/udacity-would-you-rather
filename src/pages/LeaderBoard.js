@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 class LeaderBoard extends Component {
     render() {
         const { users } = this.props;
+        let position = 1;
         return (
             <div className="card-list">
                 {
@@ -14,7 +15,7 @@ class LeaderBoard extends Component {
                                     <img src={u.avatarURL} />
                                 </div>
                                 <div className="card-inner-score">
-                                    <h4>{u.name}</h4>
+                                    <h4>{position++}º - {u.name}</h4>
                                     <table>
                                         <tbody>
                                             <tr>
