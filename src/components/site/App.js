@@ -40,8 +40,7 @@ class App extends Component {
                   <Header user={users[authedUser]} logOut={this.logOut} />
                   <div className="container">
                     <Route path='/' exact component={QuestionList} />
-                    <Route path='/new-question' exact component={QuestionCreateForm} />
-                    {/* <Route path='/login' exact component={LoginForm} /> */}
+                    <Route path='/add' exact component={QuestionCreateForm} />
                     <Route path='/leaderboard' exact component={LeaderBoard} />
                     <Route path='/question/:id' exact component={QuestionAnswer} />
                   </div>

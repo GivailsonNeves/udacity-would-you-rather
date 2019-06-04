@@ -17,7 +17,7 @@ class LoginForm extends Component {
 
     logar(event) {
         event.preventDefault();
-        const { dispatch } = this.props;
+        const { dispatch } = this.props;          
         dispatch(setAuthedUser(this.state.user));
     }
 

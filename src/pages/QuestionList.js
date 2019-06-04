@@ -37,7 +37,7 @@ class QuestionList extends Component {
             
         }
 
-        return listQuestions;
+        return listQuestions.sort((a, b) => b.timestamp - a.timestamp);
     }
 
     render() {

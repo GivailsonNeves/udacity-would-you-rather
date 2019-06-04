@@ -12,7 +12,7 @@ class QuestionCreateForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const { dispatch, history } = this.props
+        const { dispatch, history } = this.props;
 
         dispatch(handleCreateQuestion(this.state));
 

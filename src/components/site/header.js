@@ -8,7 +8,7 @@ const Header = props => (
                 <NavLink to="/" exact activeClassName='active'>
                     Home
                 </NavLink>
-                <NavLink to="/new-question" activeClassName='active'>
+                <NavLink to="/add" activeClassName='active'>
                     New Question
                 </NavLink>
                 <NavLink to="/leaderboard">

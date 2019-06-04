@@ -33,7 +33,11 @@ class QuestionAnswer extends Component {
         const { match: { params }, users, authedUser } = this.props;
         const { id } = params;
         const question = this.props.questions[id];
-        const author = this.props.users[question.author];
+        var author = null;
+        if (question) {
+            author = this.props.users[question.author];
+        }
+
         const user = users[authedUser];
 
         return (
@@ -76,7 +80,7 @@ class QuestionAnswer extends Component {
                                     <QuestionResult question={question} author={author} answer={user.answers[id]} />
                                 )
                             
-                        : <p>Question not founded!</p>
+                        : <h2 className="text-center">404 - Question not founded!</h2>
                     }
                 </form>
             </div>

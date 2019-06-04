@@ -1,6 +1,12 @@
 # Would you rather project for Udacity Nanodegree
 
+This project was made to conclude the module React/Redux from Udacity's React Nanodegree.
 
+The aplication consists of a game called **Would you rather**, where the players must answer what they prefer between two options. The users can create new questions, that can be answered for theirselfs and for another players.
+
+There's a LeaderBoard where users can find the ranking of players. The order consists of a descrescent result of the sum of questions created plus the questions answered. One point for each.
+
+## Tecnologies
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
